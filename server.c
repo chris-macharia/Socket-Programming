@@ -77,7 +77,19 @@ void handle_client_message(int i, fd_set *master_set) {
             char msg[100];
             snprintf(msg, sizeof(msg), "Your balance: %.2f\n", clients[i].balance);
             send_message(clients[i].sockfd, msg);
-        } else {
+        } 
+        // New HELP command
+        else if (strncmp(buffer, "HELP", 4) == 0) {
+            const char *help_msg =
+                "Available commands:\n"
+                "REGISTER <name>   - Create a new account\n"
+                "DEPOSIT <amount>  - Deposit money\n"
+                "WITHDRAW <amount> - Withdraw money\n"
+                "BALANCE           - Check your balance\n"
+                "HELP              - Show this help message\n";
+            send_message(clients[i].sockfd, help_msg);
+        } 
+        else {
             send_message(clients[i].sockfd, "Unknown command.\n");
         }
     }

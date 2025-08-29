@@ -56,3 +56,4 @@ dkms.conf
 
 # Developer test files contact: christophermaina003@gmail.com for more info
 server1.c
+.vscode/

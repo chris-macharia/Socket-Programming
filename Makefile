@@ -1,35 +1,31 @@
-# Makefile for Money Transfer Server
+# Makefile for MoneyApp (Server + Client)
 
-# Compiler
 CC = gcc
+CFLAGS = -Wall -Wextra -std=c11
 
-# Compiler flags
-CFLAGS = -Wall -Wextra -g
-
-# Output executable name
-TARGET = server
-
-# Source files
-SRCS = main.c server.c
+# Executables
+SERVER = server
+CLIENT = client
 
 # Object files
-OBJS = $(SRCS:.c=.o)
+SERVER_OBJS = main.o server.o
+CLIENT_OBJS = client.o
 
-# Default target
-all: $(TARGET)
+# Default target: build both
+all: $(SERVER) $(CLIENT)
 
-# Link object files to create executable
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+# Build server executable
+$(SERVER): $(SERVER_OBJS)
+	$(CC) $(CFLAGS) -o $(SERVER) $(SERVER_OBJS)
 
-# Compile .c files into .o files
-%.o: %.c server.h
+# Build client executable
+$(CLIENT): $(CLIENT_OBJS)
+	$(CC) $(CFLAGS) -o $(CLIENT) $(CLIENT_OBJS)
+
+# Compile .c files into .o
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean build files
+# Cleanup
 clean:
-	rm -f $(OBJS) $(TARGET)
-
-# Run the server on a given port (default: 8080)
-run: $(TARGET)
-	./$(TARGET) 8080
+	rm -f *.o $(SERVER) $(CLIENT)

@@ -11,38 +11,44 @@ To compile both the server and client, simply run:
 
 ```bash
 make
+```
+
 This will generate two executables:
 
-server
+1. server
 
-client
+2. client
 
 To clean up (remove binaries and object files):
 
-bash
-Copy code
+```bash
 make clean
-▶️ Running the Application
-1. Start the Server
+```
+
+## ▶️ Running the Application
+
+### 1. Start the Server
 In one terminal window, run:
 
-bash
-Copy code
+```bash
 ./server
+```
+
 The server will start and listen for incoming client connections.
 
-2. Start the Client
+### 2. Start the Client
 Open another terminal window and run:
 
-bash
-Copy code
+```bash
 ./client
+```
+
 You should now see the MoneyApp client interface.
 
-💻 Example Usage
+## 💻 Example Usage
 Once the client is connected to the server, you can type commands like:
 
-text
+```text
 Copy code
 REGISTER CHRIS
 DEPOSIT 100
@@ -50,8 +56,9 @@ BALANCE
 WITHDRAW 50
 HELP
 ⚠️ At this stage, many commands may return Unknown command. until they are fully implemented in the server.
+```
 
-🛠️ Development Notes
+## 🛠️ Development Notes
 Server code: main.c, server.c, server.h
 
 Client code: client.c
@@ -59,12 +66,3 @@ Client code: client.c
 Makefile: used to build both programs
 
 Future updates will add proper logic for commands like REGISTER, DEPOSIT, and BALANCE.
-
-yaml
-Copy code
-
----
-
-This makes it **ready for anyone** (including your teammates or lecturer) to compile, run, and test.  
-
-👉 Do you also want me to add **step-by-step instructions for testing with multiple cli

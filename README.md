@@ -49,9 +49,8 @@ You should now see the MoneyApp client interface.
 Once the client is connected to the server, you can type commands like:
 
 ```text
-Copy code
-REGISTER CHRIS
-DEPOSIT 100
+REGISTER <user>
+DEPOSIT <amount>
 BALANCE
 WITHDRAW 50
 HELP
